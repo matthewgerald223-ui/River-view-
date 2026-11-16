@@ -3,32 +3,33 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>River View Hotel & Suites | Luxury & Comfort</title>
+    <title>River View Hotel & Suites</title>
     <style>
         :root {
-            --primary-green: #0a2e1f;
-            --dark-green: #051a11;
+            --bg-dark: #071710;
+            --card-bg: #0d2319;
             --gold: #d4af37;
             --gold-light: #f3e5ab;
-            --text-light: #f8f9fa;
-            --card-bg: #113827;
+            --text-main: #f1f5f9;
+            --text-muted: #94a3b8;
         }
 
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
             scroll-behavior: smooth;
         }
 
         body {
-            background-color: var(--dark-green);
-            color: var(--text-light);
+            background-color: var(--bg-dark);
+            color: var(--text-main);
             overflow-x: hidden;
+            -webkit-tap-highlight-color: transparent;
         }
 
-        /* ================= 3D CHRISTMAS SPLASH SCREEN ================= */
+        /* ================= COMPACT 3D CHRISTMAS SPLASH ================= */
         #xmas-splash {
             position: fixed;
             inset: 0;
@@ -40,8 +41,7 @@
             align-items: center;
             text-align: center;
             padding: 20px;
-            transition: opacity 0.8s ease, visibility 0.8s ease;
-            overflow: hidden;
+            transition: opacity 0.5s ease, visibility 0.5s ease;
         }
 
         #xmas-splash.hidden {
@@ -54,686 +54,542 @@
             position: absolute;
             top: -10px;
             color: #fff;
-            font-size: 1.2em;
-            user-select: none;
+            font-size: 1rem;
             animation: fall linear infinite;
-            opacity: 0.8;
+            opacity: 0.7;
         }
 
         @keyframes fall {
-            to {
-                transform: translateY(105vh) rotate(360deg);
-            }
+            to { transform: translateY(105vh) rotate(360deg); }
         }
 
         .splash-badge {
-            background: rgba(212, 175, 55, 0.15);
+            background: rgba(212, 175, 55, 0.12);
             border: 1px solid var(--gold);
             color: var(--gold-light);
-            padding: 6px 16px;
-            border-radius: 50px;
-            font-size: 0.85rem;
-            letter-spacing: 2px;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            letter-spacing: 1.5px;
             text-transform: uppercase;
-            margin-bottom: 20px;
-            animation: pulse 2s infinite;
-        }
-
-        .scene-3d {
-            perspective: 800px;
-            margin: 15px 0 25px;
+            margin-bottom: 15px;
         }
 
         .title-3d {
-            font-size: 2.8rem;
-            font-weight: 900;
+            font-size: 2.2rem;
+            font-weight: 800;
             color: var(--gold);
             text-transform: uppercase;
-            letter-spacing: 3px;
-            line-height: 1.1;
-            transform-style: preserve-3d;
-            animation: float3D 4s ease-in-out infinite;
-            text-shadow: 
-                0 1px 0 #b8962e,
-                0 2px 0 #9c7e22,
-                0 3px 0 #806617,
-                0 4px 0 #634e0d,
-                0 5px 0 #473705,
-                0 10px 20px rgba(0, 0, 0, 0.8);
-        }
-
-        @keyframes float3D {
-            0%, 100% { transform: rotateX(10deg) rotateY(-12deg) translateY(0); }
-            50% { transform: rotateX(-5deg) rotateY(12deg) translateY(-10px); }
+            letter-spacing: 1px;
+            line-height: 1.15;
+            margin-bottom: 15px;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.8), 0 4px 12px rgba(212,175,55,0.3);
         }
 
         .splash-greeting {
-            max-width: 450px;
-            font-size: 1.05rem;
-            color: #e0e0e0;
-            margin-bottom: 30px;
-            line-height: 1.6;
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            max-width: 340px;
+            margin-bottom: 25px;
+            line-height: 1.5;
         }
 
         .btn-enter {
-            background: linear-gradient(135deg, var(--gold), #b8860b);
-            color: #051a11;
+            background: var(--gold);
+            color: #030f0a;
             border: none;
-            padding: 14px 36px;
-            font-size: 1rem;
-            font-weight: 800;
-            border-radius: 50px;
+            padding: 10px 28px;
+            font-size: 0.9rem;
+            font-weight: 700;
+            border-radius: 25px;
             cursor: pointer;
             text-transform: uppercase;
-            letter-spacing: 1.5px;
-            box-shadow: 0 8px 25px rgba(212, 175, 55, 0.4);
-            transition: transform 0.3s ease;
+            box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3);
         }
 
-        .btn-enter:active {
-            transform: scale(0.95);
-        }
-
-        /* ================= NAVIGATION ================= */
+        /* ================= CLEAN COMPACT NAV ================= */
         nav {
             position: sticky;
             top: 0;
-            background: rgba(5, 26, 17, 0.95);
-            backdrop-filter: blur(10px);
-            padding: 15px 5%;
+            background: rgba(7, 23, 16, 0.95);
+            backdrop-filter: blur(8px);
+            padding: 10px 4%;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            border-bottom: 1px solid rgba(212, 175, 55, 0.3);
+            border-bottom: 1px solid rgba(212, 175, 55, 0.2);
             z-index: 1000;
         }
 
         .logo {
-            font-size: 1.3rem;
-            font-weight: 800;
+            font-size: 1.1rem;
+            font-weight: 700;
             color: var(--gold);
-            letter-spacing: 1px;
         }
 
         .logo span {
-            color: #fff;
+            color: var(--text-muted);
+            font-size: 0.75rem;
             font-weight: 400;
-            font-size: 0.9rem;
+            display: block;
         }
 
         .nav-links {
             display: flex;
-            gap: 15px;
+            gap: 12px;
         }
 
         .nav-links a {
-            color: var(--text-light);
+            color: var(--text-main);
             text-decoration: none;
-            font-size: 0.9rem;
+            font-size: 0.8rem;
             font-weight: 500;
         }
 
-        /* ================= HERO SECTION ================= */
+        /* ================= SLIM HERO ================= */
         .hero {
-            position: relative;
-            height: 85vh;
-            background: linear-gradient(rgba(5, 26, 17, 0.65), rgba(5, 26, 17, 0.9)), url('hero.jpg') center/cover no-repeat;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
+            padding: 40px 4% 30px;
             text-align: center;
-            padding: 0 20px;
+            background: linear-gradient(180deg, rgba(13,35,25,0.6) 0%, rgba(7,23,16,1) 100%);
         }
 
         .hero h1 {
-            font-size: 2.5rem;
+            font-size: 1.8rem;
             color: var(--gold);
-            margin-bottom: 15px;
-            text-shadow: 0 4px 12px rgba(0,0,0,0.6);
+            margin-bottom: 8px;
+            line-height: 1.2;
         }
 
         .hero p {
-            max-width: 600px;
-            font-size: 1.05rem;
-            margin-bottom: 25px;
-            color: #e2e8f0;
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            max-width: 400px;
+            margin: 0 auto 20px;
+            line-height: 1.4;
         }
 
         .hero-btns {
             display: flex;
-            gap: 12px;
-            flex-wrap: wrap;
+            gap: 8px;
             justify-content: center;
+        }
+
+        .btn-gold, .btn-outline {
+            padding: 8px 16px;
+            border-radius: 6px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
         }
 
         .btn-gold {
             background: var(--gold);
-            color: var(--dark-green);
-            padding: 12px 24px;
-            border-radius: 8px;
-            text-decoration: none;
-            font-weight: 700;
+            color: #030f0a;
             border: none;
-            cursor: pointer;
-            display: inline-block;
         }
 
         .btn-outline {
             background: transparent;
             color: var(--gold);
-            border: 2px solid var(--gold);
-            padding: 10px 22px;
-            border-radius: 8px;
-            text-decoration: none;
-            font-weight: 700;
-            cursor: pointer;
+            border: 1px solid var(--gold);
         }
 
-        /* ================= SECTIONS GENERAL ================= */
+        /* ================= COMPACT SECTIONS ================= */
         section {
-            padding: 60px 5%;
+            padding: 30px 4%;
         }
 
         .section-header {
-            text-align: center;
-            margin-bottom: 40px;
+            margin-bottom: 20px;
         }
 
         .section-header h2 {
-            font-size: 2rem;
+            font-size: 1.3rem;
             color: var(--gold);
-            margin-bottom: 8px;
+            margin-bottom: 4px;
         }
 
         .section-header p {
-            color: #cbd5e1;
-            font-size: 0.95rem;
+            font-size: 0.78rem;
+            color: var(--text-muted);
         }
 
-        /* ================= ROOMS GRID & 3D CARD EFFECT ================= */
+        /* ================= COMPACT CARDS ================= */
         .grid-container {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 25px;
+            grid-template-columns: 1fr;
+            gap: 16px;
         }
 
         .card {
             background: var(--card-bg);
-            border: 1px solid rgba(212, 175, 55, 0.25);
-            border-radius: 14px;
+            border: 1px solid rgba(212, 175, 55, 0.15);
+            border-radius: 10px;
             overflow: hidden;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
             position: relative;
-        }
-
-        .card:hover {
-            transform: translateY(-6px);
-            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.5);
         }
 
         .card-img {
             width: 100%;
-            height: 210px;
+            height: 170px;
             object-fit: cover;
             display: block;
         }
 
         .status-badge {
             position: absolute;
-            top: 12px;
-            right: 12px;
-            padding: 5px 12px;
-            border-radius: 20px;
-            font-size: 0.75rem;
+            top: 10px;
+            right: 10px;
+            padding: 3px 10px;
+            border-radius: 12px;
+            font-size: 0.65rem;
             font-weight: 700;
             text-transform: uppercase;
         }
 
-        .status-available {
-            background: #10b981;
-            color: #fff;
-        }
-
-        .status-limited {
-            background: #f59e0b;
-            color: #000;
-        }
+        .status-available { background: #10b981; color: #fff; }
+        .status-limited { background: #f59e0b; color: #000; }
 
         .card-body {
-            padding: 20px;
+            padding: 14px;
         }
 
         .card-title {
-            font-size: 1.3rem;
+            font-size: 1.05rem;
             color: var(--gold);
-            margin-bottom: 8px;
+            margin-bottom: 4px;
         }
 
         .card-price {
-            font-size: 1.15rem;
+            font-size: 0.95rem;
             font-weight: 700;
             color: #fff;
-            margin-bottom: 12px;
+            margin-bottom: 10px;
+        }
+
+        .card-price span {
+            font-size: 0.72rem;
+            font-weight: 400;
+            color: var(--text-muted);
         }
 
         .amenities {
             display: flex;
             flex-wrap: wrap;
-            gap: 6px;
-            margin-bottom: 18px;
+            gap: 5px;
+            margin-bottom: 12px;
         }
 
         .amenities span {
-            background: rgba(255, 255, 255, 0.08);
-            padding: 4px 10px;
+            background: rgba(255, 255, 255, 0.05);
+            padding: 3px 8px;
+            border-radius: 4px;
+            font-size: 0.7rem;
+            color: var(--text-muted);
+        }
+
+        .btn-card {
+            width: 100%;
+            padding: 9px;
+            background: var(--gold);
+            color: #030f0a;
+            border: none;
             border-radius: 6px;
-            font-size: 0.78rem;
-            color: #cbd5e1;
+            font-weight: 700;
+            font-size: 0.8rem;
+            cursor: pointer;
         }
 
-        /* ================= SWIMMING POOL SPECIAL SECTION ================= */
-        .pool-feature {
-            background: linear-gradient(135deg, #062b38 0%, #0a2e1f 100%);
-            border: 1px solid rgba(56, 189, 248, 0.3);
-            border-radius: 16px;
-            padding: 35px 25px;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 25px;
-            align-items: center;
-        }
-
-        .pool-visual {
-            background: radial-gradient(circle at top right, #0284c7, #0369a1, #0c4a6e);
-            height: 230px;
-            border-radius: 12px;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
+        /* ================= POOL & FACILITIES COMPACT ================= */
+        .pool-box {
+            background: linear-gradient(135deg, #052633 0%, #0d2319 100%);
+            border: 1px solid rgba(56, 189, 248, 0.25);
+            border-radius: 10px;
+            padding: 20px 15px;
             text-align: center;
-            padding: 20px;
-            box-shadow: inset 0 0 30px rgba(0, 0, 0, 0.4);
-            border: 1px solid rgba(125, 211, 252, 0.4);
         }
 
-        .pool-visual h3 {
-            font-size: 1.5rem;
-            color: #e0f2fe;
-            margin-bottom: 8px;
-        }
-
-        /* ================= NIGHT VIEW SHOWCASE ================= */
-        .night-banner {
-            position: relative;
-            border-radius: 16px;
-            overflow: hidden;
-            height: 320px;
-            background: linear-gradient(to top, rgba(5, 26, 17, 0.95), rgba(5, 26, 17, 0.2)), url('night.jpg') center/cover no-repeat;
-            display: flex;
-            flex-direction: column;
-            justify-content: flex-end;
-            padding: 30px;
+        /* ================= COMPACT BOOKING FORM ================= */
+        .booking-box {
+            background: var(--card-bg);
+            padding: 20px 16px;
+            border-radius: 10px;
             border: 1px solid rgba(212, 175, 55, 0.3);
         }
 
-        /* ================= BOOKING & QR SECTION ================= */
-        .booking-box {
-            background: var(--card-bg);
-            padding: 30px;
-            border-radius: 16px;
-            border: 1px solid var(--gold);
-            max-width: 650px;
-            margin: 0 auto;
-        }
-
         .form-group {
-            margin-bottom: 16px;
+            margin-bottom: 12px;
+            text-align: left;
         }
 
         .form-group label {
             display: block;
-            margin-bottom: 6px;
-            font-size: 0.9rem;
+            margin-bottom: 4px;
+            font-size: 0.78rem;
             color: var(--gold-light);
         }
 
         .form-group input, .form-group select {
             width: 100%;
-            padding: 12px;
-            border-radius: 8px;
-            border: 1px solid rgba(212, 175, 55, 0.4);
-            background: var(--dark-green);
+            padding: 9px 10px;
+            border-radius: 6px;
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            background: var(--bg-dark);
             color: #fff;
-            font-size: 1rem;
+            font-size: 0.85rem;
         }
 
-        /* ================= QR MODAL ================= */
+        /* ================= MODAL & FOOTER ================= */
         .modal {
             display: none;
             position: fixed;
             inset: 0;
-            background: rgba(0,0,0,0.85);
+            background: rgba(0,0,0,0.8);
             z-index: 5000;
             justify-content: center;
             align-items: center;
-            padding: 20px;
+            padding: 15px;
         }
 
         .modal-content {
-            background: var(--primary-green);
-            border: 2px solid var(--gold);
-            border-radius: 16px;
-            padding: 25px;
-            max-width: 420px;
+            background: var(--card-bg);
+            border: 1px solid var(--gold);
+            border-radius: 12px;
+            padding: 20px;
             width: 100%;
+            max-width: 360px;
             text-align: center;
         }
 
-        /* ================= FOOTER ================= */
         footer {
-            background: #020d08;
+            background: #030f0a;
             text-align: center;
-            padding: 30px 20px;
-            border-top: 1px solid rgba(212, 175, 55, 0.2);
-            font-size: 0.9rem;
-            color: #94a3b8;
+            padding: 20px 15px;
+            border-top: 1px solid rgba(212, 175, 55, 0.15);
+            font-size: 0.75rem;
+            color: var(--text-muted);
         }
 
         .whatsapp-float {
             position: fixed;
-            bottom: 20px;
-            right: 20px;
+            bottom: 16px;
+            right: 16px;
             background: #25d366;
             color: #fff;
-            padding: 14px 20px;
-            border-radius: 50px;
+            padding: 10px 16px;
+            border-radius: 30px;
             font-weight: 700;
+            font-size: 0.8rem;
             text-decoration: none;
-            box-shadow: 0 6px 20px rgba(37, 211, 102, 0.4);
+            box-shadow: 0 4px 15px rgba(37, 211, 102, 0.3);
             z-index: 2000;
-            display: flex;
-            align-items: center;
-            gap: 8px;
         }
     </style>
 </head>
 <body>
 
-    <!-- 1. 3D CHRISTMAS ENTRANCE SPLASH -->
+    <!-- 3D CHRISTMAS SPLASH -->
     <div id="xmas-splash">
         <div class="splash-badge">🎄 Season's Greetings 2026 🎄</div>
-        <div class="scene-3d">
-            <div class="title-3d">RIVER VIEW<br>HOTEL & SUITES</div>
-        </div>
-        <p class="splash-greeting">
-            Wishing you a Merry Christmas & a Prosperous New Year! Experience royal hospitality, serene comfort, and unforgettable festive moments with us.
-        </p>
-        <button class="btn-enter" onclick="enterSite()">Enter Royal Experience ✨</button>
+        <div class="title-3d">RIVER VIEW<br><span style="font-size:1.2rem; font-weight:400; color:#fff;">HOTEL & SUITES</span></div>
+        <p class="splash-greeting">Experience royal hospitality, comfort, and festive moments.</p>
+        <button class="btn-enter" onclick="enterSite()">Enter Experience ✨</button>
     </div>
 
-    <!-- NAVIGATION -->
+    <!-- COMPACT NAV -->
     <nav>
         <div class="logo">RIVER VIEW <span>HOTEL</span></div>
         <div class="nav-links">
             <a href="#rooms">Rooms</a>
             <a href="#facilities">Facilities</a>
-            <a href="#pool">Pool</a>
             <a href="#book">Book</a>
         </div>
     </nav>
 
-    <!-- HERO SECTION -->
+    <!-- SLIM HERO -->
     <header class="hero">
-        <h1>Luxury Redefined by the River</h1>
-        <p>Welcome to River View Hotel & Suites. Enjoy 24/7 power, top-tier security, executive suites, and world-class relaxation.</p>
+        <h1>Luxury Redefined</h1>
+        <p>Enjoy 24/7 power, executive suites, and serene relaxation by the river.</p>
         <div class="hero-btns">
-            <a href="#book" class="btn-gold">Reserve a Room</a>
-            <button class="btn-outline" onclick="openQRModal()">📱 Smart Room QR Menu</button>
+            <a href="#book" class="btn-gold">Reserve Now</a>
+            <button class="btn-outline" onclick="openQRModal()">📱 QR Menu</button>
         </div>
     </header>
 
-    <!-- ROOMS SECTION -->
+    <!-- ROOMS -->
     <section id="rooms">
         <div class="section-header">
-            <h2>Our Luxury Rooms & Suites</h2>
-            <p>Live availability status synced for instant WhatsApp reservation</p>
+            <h2>Luxury Rooms</h2>
+            <p>Tap below for instant WhatsApp booking</p>
         </div>
         <div class="grid-container">
-            <!-- Regular Room -->
             <div class="card">
                 <span class="status-badge status-available">● Available</span>
                 <img src="regular.jpg" alt="Regular Room" class="card-img">
                 <div class="card-body">
-                    <h3 class="card-title">Regular Classic Room</h3>
-                    <div class="card-price">₦25,000 <span style="font-size:0.8rem; font-weight:400;">/ night</span></div>
+                    <h3 class="card-title">Regular Classic</h3>
+                    <div class="card-price">₦25,000 <span>/ night</span></div>
                     <div class="amenities">
-                        <span>❄️ AC</span>
-                        <span>📶 Free Wi-Fi</span>
-                        <span>📺 Smart TV</span>
-                        <span>⚡ 24/7 Power</span>
+                        <span>❄️ AC</span><span>📶 Wi-Fi</span><span>📺 Smart TV</span><span>⚡ 24/7 Power</span>
                     </div>
-                    <button class="btn-gold" style="width:100%;" onclick="selectRoom('Regular Classic Room - ₦25,000')">Book via WhatsApp</button>
+                    <button class="btn-card" onclick="selectRoom('Regular Classic Room - ₦25,000')">Book via WhatsApp</button>
                 </div>
             </div>
 
-            <!-- Deluxe Room -->
             <div class="card">
                 <span class="status-badge status-available">● Available</span>
                 <img src="delux.jpg" alt="Deluxe Room" class="card-img">
                 <div class="card-body">
-                    <h3 class="card-title">Deluxe Royal Room</h3>
-                    <div class="card-price">₦40,000 <span style="font-size:0.8rem; font-weight:400;">/ night</span></div>
+                    <h3 class="card-title">Deluxe Royal</h3>
+                    <div class="card-price">₦40,000 <span>/ night</span></div>
                     <div class="amenities">
-                        <span>🛏️ King Bed</span>
-                        <span>❄️ Split AC</span>
-                        <span>🍽️ Room Service</span>
-                        <span>📶 High-Speed Wi-Fi</span>
+                        <span>🛏️ King Bed</span><span>❄️ Split AC</span><span>🍽️ Room Service</span>
                     </div>
-                    <button class="btn-gold" style="width:100%;" onclick="selectRoom('Deluxe Royal Room - ₦40,000')">Book via WhatsApp</button>
+                    <button class="btn-card" onclick="selectRoom('Deluxe Royal Room - ₦40,000')">Book via WhatsApp</button>
                 </div>
             </div>
 
-            <!-- Executive Suite -->
             <div class="card">
                 <span class="status-badge status-limited">● 2 Left</span>
                 <img src="executive.jpg" alt="Executive Suite" class="card-img">
                 <div class="card-body">
-                    <h3 class="card-title">Executive VIP Suite</h3>
-                    <div class="card-price">₦65,000 <span style="font-size:0.8rem; font-weight:400;">/ night</span></div>
+                    <h3 class="card-title">Executive VIP</h3>
+                    <div class="card-price">₦65,000 <span>/ night</span></div>
                     <div class="amenities">
-                        <span>👑 VIP Lounge</span>
-                        <span>🥂 Mini Bar</span>
-                        <span>🏊 Pool Access</span>
-                        <span>🛡️ VIP Security</span>
+                        <span>👑 VIP Lounge</span><span>🥂 Mini Bar</span><span>🏊 Pool Access</span>
                     </div>
-                    <button class="btn-gold" style="width:100%;" onclick="selectRoom('Executive VIP Suite - ₦65,000')">Book via WhatsApp</button>
+                    <button class="btn-card" onclick="selectRoom('Executive VIP Suite - ₦65,000')">Book via WhatsApp</button>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- FACILITIES GALLERY (LOBBY, LOUNGE, HALL) -->
-    <section id="facilities" style="background: rgba(0,0,0,0.25);">
+    <!-- FACILITIES -->
+    <section id="facilities" style="padding-top:0;">
         <div class="section-header">
-            <h2>World-Class Facilities</h2>
-            <p>Designed for business, celebrations, and pure relaxation</p>
+            <h2>Facilities & Pool</h2>
+            <p>Designed for comfort and recreation</p>
         </div>
         <div class="grid-container">
             <div class="card">
-                <img src="lobby.jpg" alt="Hotel Lobby" class="card-img">
-                <div class="card-body">
-                    <h3 class="card-title">Grand Reception & Lobby</h3>
-                    <p style="font-size:0.9rem; color:#cbd5e1;">24-hour warm reception with express QR check-in and concierge support.</p>
+                <img src="lobby.jpg" alt="Lobby" class="card-img" style="height:130px;">
+                <div class="card-body" style="padding:10px;">
+                    <h3 class="card-title" style="font-size:0.95rem;">Grand Reception & Lobby</h3>
                 </div>
             </div>
-
             <div class="card">
-                <img src="lunge.jpg" alt="VIP Lounge" class="card-img">
-                <div class="card-body">
-                    <h3 class="card-title">Executive VIP Lounge & Bar</h3>
-                    <p style="font-size:0.9rem; color:#cbd5e1;">Chill with exotic drinks, grilled delicacies, and cool music in a serene atmosphere.</p>
+                <img src="lunge.jpg" alt="Lounge" class="card-img" style="height:130px;">
+                <div class="card-body" style="padding:10px;">
+                    <h3 class="card-title" style="font-size:0.95rem;">Executive VIP Lounge</h3>
                 </div>
             </div>
-
             <div class="card">
-                <img src="hall.jpg" alt="Event Hall" class="card-img">
-                <div class="card-body">
-                    <h3 class="card-title">Banquet & Conference Hall</h3>
-                    <p style="font-size:0.9rem; color:#cbd5e1;">Spacious multi-purpose hall ideal for weddings, corporate seminars, and parties.</p>
+                <img src="hall.jpg" alt="Hall" class="card-img" style="height:130px;">
+                <div class="card-body" style="padding:10px;">
+                    <h3 class="card-title" style="font-size:0.95rem;">Banquet & Event Hall</h3>
                 </div>
             </div>
-        </div>
-    </section>
-
-    <!-- CUSTOM SWIMMING POOL & RELAXATION SECTION -->
-    <section id="pool">
-        <div class="pool-feature">
-            <div class="pool-visual">
-                <div style="font-size: 3rem; margin-bottom: 10px;">🏊‍♂️🍹</div>
-                <h3>Crystal Clear Swimming Pool</h3>
-                <p style="font-size: 0.9rem; color: #bae6fd;">Poolside Bar • Night Lighting • VIP Cabanas</p>
-            </div>
-            <div>
-                <span style="color: #38bdf8; font-weight: 700; letter-spacing: 1px; font-size: 0.85rem;">NEW RELAXATION EXPERIENCE</span>
-                <h2 style="color: var(--gold); font-size: 1.9rem; margin: 8px 0 15px;">Poolside Lounge & Aqua Relaxation</h2>
-                <p style="color: #e2e8f0; line-height: 1.6; margin-bottom: 20px;">
-                    Take a refreshing dip in our temperature-controlled outdoor swimming pool. Whether you want morning laps or evening cocktails by the water, our poolside attendants are on standby via QR ordering.
-                </p>
-                <a href="https://wa.me/2348129076987?text=Hello%20River%20View%20Hotel,%20I%20want%20to%20inquire%20about%20Poolside%20Access%20and%20VIP%20Relaxation." class="btn-gold">Reserve Poolside Pass</a>
+            <div class="pool-box">
+                <h3 style="color:var(--gold); font-size:1rem; margin-bottom:4px;">🏊‍♂️ Swimming Pool & Bar</h3>
+                <p style="font-size:0.75rem; color:var(--text-muted); margin-bottom:10px;">Temperature-controlled pool with poolside relaxation & QR ordering.</p>
+                <a href="https://wa.me/2348129076987?text=Hello%20River%20View%20Hotel,%20I%20want%20to%20inquire%20about%20Poolside%20Access." class="btn-gold" style="padding:6px 12px; font-size:0.72rem;">Get Poolside Pass</a>
             </div>
         </div>
     </section>
 
-    <!-- NIGHT VIEW SHOWCASE -->
-    <section>
-        <div class="night-banner">
-            <h2 style="color: var(--gold); font-size: 1.8rem; margin-bottom: 8px;">Dazzling Night Ambience</h2>
-            <p style="color: #f1f5f9; max-width: 600px;">Experience River View Hotel illuminated at night with 24/7 uninterrupted power supply and round-the-clock armed security.</p>
-        </div>
-    </section>
-
-    <!-- DIRECT WHATSAPP BOOKING FORM -->
-    <section id="book">
+    <!-- BOOKING FORM -->
+    <section id="book" style="padding-top:0;">
         <div class="section-header">
-            <h2>Instant Room Reservation</h2>
-            <p>Fill your details below to send an instant booking request directly to our front desk on WhatsApp</p>
+            <h2>Quick Reservation</h2>
         </div>
         <div class="booking-box">
             <div class="form-group">
                 <label>Full Name</label>
-                <input type="text" id="guestName" placeholder="Enter your full name" required>
+                <input type="text" id="guestName" placeholder="Enter full name">
             </div>
             <div class="form-group">
                 <label>Select Room / Facility</label>
                 <select id="roomType">
-                    <option value="Regular Classic Room - ₦25,000">Regular Classic Room (₦25,000/night)</option>
-                    <option value="Deluxe Royal Room - ₦40,000">Deluxe Royal Room (₦40,000/night)</option>
-                    <option value="Executive VIP Suite - ₦65,000">Executive VIP Suite (₦65,000/night)</option>
-                    <option value="Banquet & Conference Hall">Banquet & Conference Hall Booking</option>
+                    <option value="Regular Classic Room - ₦25,000">Regular Classic (₦25k)</option>
+                    <option value="Deluxe Royal Room - ₦40,000">Deluxe Royal (₦40k)</option>
+                    <option value="Executive VIP Suite - ₦65,000">Executive VIP (₦65k)</option>
+                    <option value="Banquet Hall">Banquet Hall</option>
                 </select>
             </div>
             <div class="form-group">
                 <label>Check-in Date</label>
-                <input type="date" id="checkInDate" required>
+                <input type="date" id="checkInDate">
             </div>
             <div class="form-group">
-                <label>Number of Nights</label>
+                <label>Nights</label>
                 <input type="number" id="nights" value="1" min="1">
             </div>
-            <button class="btn-gold" style="width:100%; font-size:1.05rem; padding:14px;" onclick="sendWhatsAppBooking()">Confirm Booking via WhatsApp 🚀</button>
+            <button class="btn-card" onclick="sendWhatsAppBooking()">Confirm via WhatsApp 🚀</button>
         </div>
     </section>
 
-    <!-- QR IN-ROOM SERVICE MODAL -->
+    <!-- QR MODAL -->
     <div id="qrModal" class="modal">
         <div class="modal-content">
-            <h3 style="color:var(--gold); margin-bottom:10px;">📱 Smart Room QR Service</h3>
-            <p style="font-size:0.9rem; color:#e2e8f0; margin-bottom:15px;">In-room guests scan their room QR code to order food, drinks, or connect to Wi-Fi instantly.</p>
-            <div class="form-group" style="text-align:left;">
+            <h3 style="color:var(--gold); font-size:1.1rem; margin-bottom:8px;">📱 QR Room Menu</h3>
+            <p style="font-size:0.78rem; color:var(--text-muted); margin-bottom:12px;">In-room orders straight to kitchen.</p>
+            <div class="form-group">
                 <label>Room Number</label>
-                <input type="text" id="qrRoomNo" placeholder="e.g. Room 104">
+                <input type="text" id="qrRoomNo" placeholder="e.g. Room 102">
             </div>
-            <div class="form-group" style="text-align:left;">
-                <label>Select Quick Order / Request</label>
+            <div class="form-group">
+                <label>Select Request</label>
                 <select id="qrOrder">
-                    <option value="Jollof Rice & Grilled Chicken + Drink">Jollof Rice & Grilled Chicken + Drink</option>
-                    <option value="Pepper Soup & Chilled Trophy/Heineken">Catfish Pepper Soup & Chilled Drinks</option>
-                    <option value="Request Wi-Fi Password">Request High-Speed Wi-Fi Access</option>
-                    <option value="Room Cleaning / Fresh Towels">Housekeeping / Fresh Towels</option>
+                    <option value="Jollof Rice & Chicken">Jollof Rice & Chicken</option>
+                    <option value="Pepper Soup & Cold Drinks">Pepper Soup & Drinks</option>
+                    <option value="Request Wi-Fi Password">Request Wi-Fi Password</option>
+                    <option value="Housekeeping / Towels">Housekeeping / Towels</option>
                 </select>
             </div>
-            <button class="btn-gold" style="width:100%; margin-bottom:10px;" onclick="sendQROrder()">Send Order to Reception</button>
-            <button class="btn-outline" style="width:100%; padding:8px;" onclick="closeQRModal()">Close</button>
+            <button class="btn-card" style="margin-bottom:8px;" onclick="sendQROrder()">Send Order</button>
+            <button class="btn-outline" style="width:100%; padding:7px; font-size:0.75rem;" onclick="closeQRModal()">Close</button>
         </div>
     </div>
 
-    <!-- FLOATING WHATSAPP BUTTON -->
-    <a href="https://wa.me/2348129076987?text=Hello%20River%20View%20Hotel,%20I%20would%20like%20to%20make%20an%20inquiry." class="whatsapp-float" target="_blank">
-        💬 Chat Front Desk
-    </a>
+    <!-- WHATSAPP FLOATING -->
+    <a href="https://wa.me/2348129076987?text=Hello%20River%20View%20Hotel" class="whatsapp-float" target="_blank">💬 Front Desk</a>
 
-    <!-- FOOTER -->
     <footer>
-        <p style="color:var(--gold); font-weight:700; margin-bottom:6px;">RIVER VIEW HOTEL & SUITES</p>
-        <p>24/7 Power • Executive Suites • VIP Lounge • Swimming Pool • Event Hall</p>
-        <p style="margin-top:12px; font-size:0.8rem;">Powered by <strong>Matel Digital</strong></p>
+        <p style="color:var(--gold); font-weight:600;">RIVER VIEW HOTEL & SUITES</p>
+        <p style="margin-top:4px;">Powered by <strong>Matel Digital</strong></p>
     </footer>
 
     <script>
-        // Generate Snowflakes for 3D Christmas Splash
         const splash = document.getElementById('xmas-splash');
-        for (let i = 0; i < 30; i++) {
+        for (let i = 0; i < 20; i++) {
             let snow = document.createElement('div');
             snow.className = 'snowflake';
             snow.innerHTML = '❄';
             snow.style.left = Math.random() * 100 + 'vw';
-            snow.style.animationDuration = (Math.random() * 3 + 3) + 's';
-            snow.style.fontSize = (Math.random() * 12 + 10) + 'px';
+            snow.style.animationDuration = (Math.random() * 3 + 2) + 's';
             splash.appendChild(snow);
         }
-
-        function enterSite() {
-            splash.classList.add('hidden');
-        }
-
-        // Pre-select room and scroll to booking
+        function enterSite() { splash.classList.add('hidden'); }
         function selectRoom(roomName) {
             document.getElementById('roomType').value = roomName;
             document.getElementById('book').scrollIntoView({ behavior: 'smooth' });
         }
-
-        // Send Booking to WhatsApp (08129076987)
         function sendWhatsAppBooking() {
             const name = document.getElementById('guestName').value.trim();
             const room = document.getElementById('roomType').value;
             const date = document.getElementById('checkInDate').value;
             const nights = document.getElementById('nights').value;
-
-            if (!name || !date) {
-                alert('Please enter your name and check-in date.');
-                return;
-            }
-
-            const message = `Hello River View Hotel! I want to make a reservation:%0A%0A*Name:* ${name}%0A*Room/Facility:* ${room}%0A*Check-in Date:* ${date}%0A*Duration:* ${nights} Night(s)%0A%0APlease confirm availability.`;
-            window.open(`https://wa.me/2348129076987?text=${message}`, '_blank');
+            if (!name || !date) { alert('Enter your name and check-in date.'); return; }
+            window.open(`https://wa.me/2348129076987?text=Booking:%20${name}%20|%20${room}%20|%20Date:%20${date}%20|%20Nights:%20${nights}`, '_blank');
         }
-
-        // QR Menu Functions
-        function openQRModal() {
-            document.getElementById('qrModal').style.display = 'flex';
-        }
-
-        function closeQRModal() {
-            document.getElementById('qrModal').style.display = 'none';
-        }
-
+        function openQRModal() { document.getElementById('qrModal').style.display = 'flex'; }
+        function closeQRModal() { document.getElementById('qrModal').style.display = 'none'; }
         function sendQROrder() {
-            const roomNo = document.getElementById('qrRoomNo').value.trim() || 'Guest';
+            const roomNo = document.getElementById('qrRoomNo').value.trim() || 'Room';
             const order = document.getElementById('qrOrder').value;
-            const message = `*SMART QR ROOM ORDER*%0A*Location:* ${roomNo}%0A*Request:* ${order}`;
-            window.open(`https://wa.me/2348129076987?text=${message}`, '_blank');
+            window.open(`https://wa.me/2348129076987?text=QR%20Order%20-%20${roomNo}:%20${order}`, '_blank');
             closeQRModal();
         }
     </script>
