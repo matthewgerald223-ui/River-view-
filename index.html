@@ -28,7 +28,7 @@
             -webkit-tap-highlight-color: transparent;
         }
 
-        /* ================= 3D CHRISTMAS SPLASH ================= */
+        /* ================= 3D SPINNING CHRISTMAS SPLASH ================= */
         #xmas-splash {
             position: fixed;
             inset: 0;
@@ -74,15 +74,45 @@
             margin-bottom: 15px;
         }
 
+        .scene-3d {
+            perspective: 900px;
+            margin: 10px 0 18px;
+        }
+
         .title-3d {
-            font-size: 2.2rem;
-            font-weight: 800;
+            font-size: 2.3rem;
+            font-weight: 900;
             color: var(--gold);
             text-transform: uppercase;
-            letter-spacing: 1px;
+            letter-spacing: 2px;
             line-height: 1.15;
-            margin-bottom: 15px;
-            text-shadow: 0 2px 4px rgba(0,0,0,0.8), 0 4px 12px rgba(212,175,55,0.3);
+            transform-style: preserve-3d;
+            animation: spin3D 6s ease-in-out infinite;
+            text-shadow: 
+                0 1px 0 #b8962e,
+                0 2px 0 #9c7e22,
+                0 3px 0 #806617,
+                0 4px 0 #634e0d,
+                0 5px 0 #473705,
+                0 12px 25px rgba(0, 0, 0, 0.9);
+        }
+
+        @keyframes spin3D {
+            0% {
+                transform: rotateY(-25deg) rotateX(10deg) scale(1);
+            }
+            25% {
+                transform: rotateY(0deg) rotateX(-8deg) scale(1.05);
+            }
+            50% {
+                transform: rotateY(25deg) rotateX(10deg) scale(1);
+            }
+            75% {
+                transform: rotateY(0deg) rotateX(-8deg) scale(1.05);
+            }
+            100% {
+                transform: rotateY(-25deg) rotateX(10deg) scale(1);
+            }
         }
 
         .splash-greeting {
@@ -370,10 +400,12 @@
 </head>
 <body>
 
-    <!-- 3D CHRISTMAS SPLASH -->
+    <!-- 3D SPINNING CHRISTMAS SPLASH -->
     <div id="xmas-splash">
         <div class="splash-badge">🎄 Season's Greetings 2026 🎄</div>
-        <div class="title-3d">RIVER VIEW<br><span style="font-size:1.2rem; font-weight:400; color:#fff;">HOTEL & SUITES</span></div>
+        <div class="scene-3d">
+            <div class="title-3d">RIVER VIEW<br><span style="font-size:1.1rem; font-weight:700; color:#fff; letter-spacing:3px;">HOTEL & SUITES</span></div>
+        </div>
         <p class="splash-greeting">Experience royal hospitality, comfort, and festive moments.</p>
         <button class="btn-enter" onclick="enterSite()">Enter Experience ✨</button>
     </div>
